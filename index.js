@@ -3,7 +3,8 @@ const app=express();
 const mongodb=require('mongodb');
 const bodyParser=require('body-parser');
 const cors=require('cors');
-const url="mongodb://localhost:27017";
+//const url="mongodb://localhost:27017";
+const url=process.env.DB;
 
 //MiddleWare
 app.use(bodyParser());
