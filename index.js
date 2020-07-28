@@ -41,7 +41,18 @@ app.get('/users/:email', async(req,res)=>{
         console.log(err);
     }
 })
+app.get('/users', async(req,res)=>{
+    try{
+        let client=await mongodb.connect(url);
+        let db=client.db("products");
+        let data=await db.collection("users").find().toArray();
+        res.send(data); 
 
+
+    }catch(err){
+        console.log(err);
+    }
+})
 
 
 //Product Listing
